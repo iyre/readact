@@ -1,7 +1,14 @@
 $('#input').on('blur', function() {fillOutput()})
 $('#weight').on('input', function() {fillOutput()})
+$('#filename').on('input', function() {openFile()})
+$('#save').on('click', function() {saveFile()})
 
-fillOutput()
+//localStorage.setItem("files", JSON.stringify(['t_beatit', 't_kicker']))
+//localStorage.setItem("t_beatit", "They told him don't you ever come around here\nDon't wanna see your face, you better disappear\nThe fire's in their eyes and their words are really clear\nSo beat it, just beat it\n\nYou better run, you better do what you can\nDon't wanna see no blood, don't be a macho man\nYou wanna be tough, better do what you can\nSo beat it, but you wanna be bad\n\nJust beat it, beat it, beat it, beat it\nNo one wants to be defeated\nShowin' how funky, strong it's your fight\nIt doesn't matter who's wrong or right\n\nJust beat it, beat it, just beat it, beat it\nJust beat it, beat it, just beat it, beat it")
+//localStorage.setItem("t_kicker", "The fire's in their eyes and their words are really clear\nSo beat it, just beat it")
+
+loadStorage()
+openFile()
 
 function fillOutput() {
   $('#output').empty()
@@ -23,4 +30,43 @@ function redactWrap(word,weight) {
   else if (!word.match(/[a-zA-Z]/)) {return word}
   else if (Math.floor(Math.random() * 100 + 1) > weight) {return word}
   else {return "<a class='redacted'>" + word + "</a>"}
+}
+
+function initStorage() {
+  localStorage.setItem("files", JSON.stringify(['u_beatit']))
+  localStorage.setItem("u_beatit", "They told him don't you ever come around here\nDon't wanna see your face, you better disappear\nThe fire's in their eyes and their words are really clear\nSo beat it, just beat it\n\nYou better run, you better do what you can\nDon't wanna see no blood, don't be a macho man\nYou wanna be tough, better do what you can\nSo beat it, but you wanna be bad\n\nJust beat it, beat it, beat it, beat it\nNo one wants to be defeated\nShowin' how funky, strong it's your fight\nIt doesn't matter who's wrong or right\n\nJust beat it, beat it, just beat it, beat it\nJust beat it, beat it, just beat it, beat it")
+}
+
+function loadStorage() {
+  if (localStorage.getItem("files") == null) {initStorage()}
+  var files = JSON.parse(localStorage.getItem("files"))
+  var selected = $('#filename').val()
+  $('#filename').empty()
+  for (i=0; i<files.length; i++) {
+    (files[i]==selected ? addToList(files[i],"selected") : addToList(files[i]))
+  }
+  return files
+}
+
+function addToList(filename,selected="") {
+  $('#filename').append("<option value='" + filename + "' " + selected + ">" + filename.slice(2) + "</option>")
+}
+
+function saveFile() {
+  var saveName = $('#newfile').val()
+  var saveContent = $('#input').val()
+  var files = loadStorage()
+  if (files.indexOf("u_"+saveName)>-1) {alert("file exists");return}
+  files.push("u_" + saveName)
+  localStorage.setItem("files", JSON.stringify(files))
+  localStorage.setItem("u_" + saveName, saveContent)
+  $('#filename').append("<option value='u_" + saveName + "' selected>" + saveName + "</option>")
+}
+
+function openFile() {
+  var file = localStorage.getItem($('#filename').val())
+  if (file != "") {
+    $('#input').val(file)
+    fillOutput()
+  }
 }
