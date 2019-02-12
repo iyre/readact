@@ -1,5 +1,7 @@
-$('#input').on('blur', function(){fillOutput()});
-$('#weight').on('input', function(){fillOutput()});
+$('#input').on('blur', function() {fillOutput()})
+$('#weight').on('input', function() {fillOutput()})
+
+fillOutput()
 
 function fillOutput() {
   $('#output').empty()
@@ -7,9 +9,7 @@ function fillOutput() {
   var wordlist = parseText()
   for (var i = 0; i < wordlist.length; i++) {
     var word = wordlist[i]
-    if (word == "\n") {word="<br>"}
-    else if (word.length > 1) {word=redactWrap(word,weight)}
-    $('#output').append(word)
+    $('#output').append(redactWrap(word,weight))
   }
 }
 
@@ -19,7 +19,8 @@ function parseText() {
 }
 
 function redactWrap(word,weight) {
-  if (Math.floor(Math.random()*100+1) > weight) {return word}
-  return "<a class='redacted'>" + word + "</a>"
+  if (word == "\n") {return "<br>"}
+  else if (!word.match(/[a-zA-Z]/)) {return word}
+  else if (Math.floor(Math.random() * 100 + 1) > weight) {return word}
+  else {return "<a class='redacted'>" + word + "</a>"}
 }
-fillOutput()

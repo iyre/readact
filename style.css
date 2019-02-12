@@ -5,13 +5,17 @@ html {
   line-height:1.5;
   text-align:center;
 }
+#input {
+  width:100%;
+  max-width:40em;
+}
 #output {
   font-size:1.5em;
   cursor:default;
   user-select:none;
 }
 .slider {
-  width:400px;
+  width:30em;
 }
 .redacted {
   color:#000;
