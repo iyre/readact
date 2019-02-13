@@ -3,7 +3,8 @@ html {
   font-size:1em;
   background:#eee;
   color:#000;
-  line-height:1.5;
+  line-height:1.5em;
+  padding:0;
 }
 body {
   display:flex;
@@ -16,9 +17,14 @@ body {
   max-width:40em;
 }
 #output {
+  padding-left:0;
+  list-style-type:none;
   font-size:1.5em;
   cursor:default;
   user-select:none;
+}
+#output li {
+  height:1.5em;
 }
 #weight {
   width:30em;
@@ -29,9 +35,17 @@ body {
 .redacted:hover {
   color:#fff;
 }
-.block {
-  display:inline-block;
+.hide {display:none;}
+#hide {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+  font-size:1.5em;
+  color:#999;
 }
+#hide:hover {color:#000;}
 
 
 @media print {
@@ -46,10 +60,13 @@ body {
   #newfile {display:none;}
   #save {display:none;}
   #weight {display:none;}
+  #hide {display:none;}
   #output {
     font-family:arial;
     font-size:10pt;
     column-count:2;
+    column-gap:20px;
+    column-rule:1px solid black;
   }
   .redacted {
     background-color:white;

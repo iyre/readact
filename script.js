@@ -2,6 +2,7 @@ $('#input').on('blur', function() {fillOutput()})
 $('#weight').on('input', function() {fillOutput()})
 $('#filename').on('input', function() {openFile()})
 $('#save').on('click', function() {saveFile()})
+$('#hide').on('click', function() {toggleStealth()})
 
 //localStorage.setItem("files", JSON.stringify(['t_beatit', 't_kicker']))
 //localStorage.setItem("t_beatit", "They told him don't you ever come around here\nDon't wanna see your face, you better disappear\nThe fire's in their eyes and their words are really clear\nSo beat it, just beat it\n\nYou better run, you better do what you can\nDon't wanna see no blood, don't be a macho man\nYou wanna be tough, better do what you can\nSo beat it, but you wanna be bad\n\nJust beat it, beat it, beat it, beat it\nNo one wants to be defeated\nShowin' how funky, strong it's your fight\nIt doesn't matter who's wrong or right\n\nJust beat it, beat it, just beat it, beat it\nJust beat it, beat it, just beat it, beat it")
@@ -14,10 +15,13 @@ function fillOutput() {
   $('#output').empty()
   var weight = $('#weight').val()
   var wordlist = parseText()
+  var line = '<li>'
   for (var i = 0; i < wordlist.length; i++) {
     var word = wordlist[i]
-    $('#output').append(redactWrap(word,weight))
+    if (word == "\n") {$('#output').append(line+'</li>');line='<li>';}
+    else {line+=redactWrap(word,weight)}
   }
+  $('#output').append(line+'</li>')
 }
 
 function parseText() {
@@ -26,10 +30,9 @@ function parseText() {
 }
 
 function redactWrap(word,weight) {
-  if (word == "\n") {return "<br>"}
-  else if (!word.match(/[a-zA-Z]/)) {return word}
+  if (!word.match(/[a-zA-Z]/)) {return word}
   else if (Math.floor(Math.random() * 100 + 1) > weight) {return word}
-  else {return "<a class='redacted'>" + word + "</a>"}
+  else {return "<span class='redacted'>" + word + "</span>"}
 }
 
 function initStorage() {
@@ -56,8 +59,7 @@ function saveFile() {
   var saveName = $('#newfile').val()
   var saveContent = $('#input').val()
   var files = loadStorage()
-  if (files.indexOf("u_"+saveName)>-1) {alert("file exists");return}
-  files.push("u_" + saveName)
+  if (files.indexOf("u_"+saveName)<1) {files.push("u_" + saveName)}
   localStorage.setItem("files", JSON.stringify(files))
   localStorage.setItem("u_" + saveName, saveContent)
   $('#filename').append("<option value='u_" + saveName + "' selected>" + saveName + "</option>")
@@ -69,4 +71,13 @@ function openFile() {
     $('#input').val(file)
     fillOutput()
   }
+}
+
+function toggleStealth() {
+  $('#instructions').toggleClass('hide')
+  $('#input').toggleClass('hide')
+  $('#filename').toggleClass('hide')
+  $('#newfile').toggleClass('hide')
+  $('#save').toggleClass('hide')
+  $('#weight').toggleClass('hide')
 }
