@@ -4,10 +4,6 @@ $('#filename').on('input', function() {openFile()})
 $('#save').on('click', function() {saveFile()})
 $('#hide').on('click', function() {toggleStealth()})
 
-//localStorage.setItem("files", JSON.stringify(['t_beatit', 't_kicker']))
-//localStorage.setItem("t_beatit", "They told him don't you ever come around here\nDon't wanna see your face, you better disappear\nThe fire's in their eyes and their words are really clear\nSo beat it, just beat it\n\nYou better run, you better do what you can\nDon't wanna see no blood, don't be a macho man\nYou wanna be tough, better do what you can\nSo beat it, but you wanna be bad\n\nJust beat it, beat it, beat it, beat it\nNo one wants to be defeated\nShowin' how funky, strong it's your fight\nIt doesn't matter who's wrong or right\n\nJust beat it, beat it, just beat it, beat it\nJust beat it, beat it, just beat it, beat it")
-//localStorage.setItem("t_kicker", "The fire's in their eyes and their words are really clear\nSo beat it, just beat it")
-
 loadStorage()
 openFile()
 
@@ -56,13 +52,18 @@ function addToList(filename,selected="") {
 }
 
 function saveFile() {
+  var fileName = $('#filename').val()
   var saveName = $('#newfile').val()
   var saveContent = $('#input').val()
   var files = loadStorage()
-  if (files.indexOf("u_"+saveName)<1) {files.push("u_" + saveName)}
-  localStorage.setItem("files", JSON.stringify(files))
+  if (saveName=="" || saveName == null) {saveName=fileName.slice(2)}
+  if (files.indexOf("u_"+saveName)<1) {
+    files.push("u_" + saveName)
+    localStorage.setItem("files", JSON.stringify(files))
+    $('#filename').append("<option value='u_" + saveName + "' selected>" + saveName + "</option>")
+  }
+  $('#filename').val('u_'+saveName)
   localStorage.setItem("u_" + saveName, saveContent)
-  $('#filename').append("<option value='u_" + saveName + "' selected>" + saveName + "</option>")
 }
 
 function openFile() {
