@@ -2,8 +2,14 @@ html {
   font-family:sans-serif;
   font-size:1em;
   background:#eee;
+  color:#000;
   line-height:1.5;
+}
+body {
+  display:flex;
+  flex-direction:column;
   text-align:center;
+  align-items:center;
 }
 #input {
   width:100%;
@@ -14,13 +20,40 @@ html {
   cursor:default;
   user-select:none;
 }
-.slider {
+#weight {
   width:30em;
 }
 .redacted {
-  color:#000;
   background-color:#000;
 }
 .redacted:hover {
   color:#fff;
+}
+.block {
+  display:inline-block;
+}
+
+
+@media print {
+  * {margin:0 !important; padding:0 !important;}
+  html,body {
+    height:100%;
+    background:white;
+  }
+  #instructions {display:none;}
+  #input {display:none;}
+  #filename {display:none;}
+  #newfile {display:none;}
+  #save {display:none;}
+  #weight {display:none;}
+  #output {
+    font-family:arial;
+    font-size:9.5pt;
+    column-count:3;
+  }
+  .redacted {
+    background-color:white;
+    color:white;
+    border-bottom:1px solid black;
+  }
 }

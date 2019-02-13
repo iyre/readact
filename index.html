@@ -7,14 +7,12 @@
     <link rel="icon" type="image/png" href="favicon.png">
   </head>
   <body>
-    <p>Enter lyrics in the text area. Slider controls hiding - hover/tap to reveal</p>
-    <textarea id="input" rows="5" cols="80"></textarea>
-    <br>
+    <p id="instructions">Enter lyrics in the text area. Slider controls hiding - hover/tap to reveal</p>
+    <textarea class="clear" id="input" rows="5" cols="80"></textarea>
     <select id="filename" name="filename"></select>
     <input id="newfile" type="text">
     <button id="save">Save</button>
-    <br>
-    <input class="slider" type="range" id="weight" min="0" value="50" max="100" step="10">
+    <input class="slider clear" type="range" id="weight" min="0" value="50" max="100" step="10">
     
     <p id="output"></p>
 
