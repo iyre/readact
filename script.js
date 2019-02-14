@@ -3,7 +3,7 @@ $('#input').on('blur', function() {fillOutput()})
 $('#weight').on('input', function() {fillOutput()})
 $('#filename').on('input', function() {openFile()})
 $('#save').on('click', function() {saveFile()})
-$('#hide').on('click', function() {toggleStealth()})
+$('#toggleui').on('click', function() {toggleStealth()})
 
 loadStorage()
 openFile()

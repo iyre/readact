@@ -1,9 +1,10 @@
+* {page-break-after:auto;user-select:none;}
 html {
   font-family:sans-serif;
   font-size:1em;
+  line-height:1em;
   background:#eee;
-  color:#000;
-  line-height:1.5em;
+  color:black;
   padding:0;
 }
 body {
@@ -15,28 +16,34 @@ body {
 #input {
   width:100%;
   max-width:40em;
+  user-select:text;
 }
 #output {
-  padding-left:0;
+  margin:.5em;
+  padding:0;
   list-style-type:none;
   font-size:1.5em;
   cursor:default;
-  user-select:none;
 }
 #output li {
-  height:1.5em;
+  page-break-inside:avoid;
+  min-height:1.2em;
+  line-height:1.4em;
 }
 #weight {
   width:30em;
 }
 .redacted {
-  background-color:#000;
+  background:black;
+  color:rgba(255,255,255,0);
+  user-select:text;
 }
 .redacted:hover {
-  color:#fff;
+  color:rgba(255,255,255,1);
 }
+.redacted::selection {color:rgba(255,255,255,1);}
 .hide {display:none;}
-#hide {
+#toggleui {
   background:none;
   border:none;
   margin:0;
@@ -45,13 +52,12 @@ body {
   font-size:1.5em;
   color:#999;
 }
-#hide:hover {color:#000;}
-
+#toggleui:hover {color:black;}
+#toggleui:focus {outline:0;}
 
 @media print {
-  * {margin:0 !important; padding:0 !important;}
   html,body {
-    height:100%;
+    height:99%;
     background:white;
   }
   #instructions {display:none;}
@@ -60,17 +66,15 @@ body {
   #newfile {display:none;}
   #save {display:none;}
   #weight {display:none;}
-  #hide {display:none;}
+  #toggleui {display:none;}
   #output {
     font-family:arial;
     font-size:10pt;
-    column-count:2;
-    column-gap:20px;
-    column-rule:1px solid black;
   }
+  #output li {line-height:15pt;}
   .redacted {
     background-color:white;
-    color:white;
+    color:rgba(0,0,0,0);
     border-bottom:1px solid black;
   }
 }
