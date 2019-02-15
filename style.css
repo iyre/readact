@@ -1,4 +1,4 @@
-* {page-break-after:auto;user-select:none;}
+* {page-break-after:auto;user-select:none;-moz-user-select: none;-webkit-user-select: none;}
 html {
   font-family:sans-serif;
   font-size:1em;
@@ -17,6 +17,8 @@ body {
   width:100%;
   max-width:40em;
   user-select:text;
+  -moz-user-select:text;
+  -webkit-user-select:text;
 }
 #output {
   margin:.5em;
@@ -29,6 +31,7 @@ body {
   page-break-inside:avoid;
   min-height:1.2em;
   line-height:1.4em;
+  user-select:none;
 }
 #weight {
   width:30em;
@@ -36,12 +39,12 @@ body {
 .redacted {
   background:black;
   color:rgba(255,255,255,0);
-  user-select:text;
 }
-.redacted:hover {
+.show, .redacted:hover {
   color:rgba(255,255,255,1);
+  transition-duration: 75ms;
+  -webkit-transition-duration: 75ms;
 }
-.redacted::selection {color:rgba(255,255,255,1);}
 .hide {display:none;}
 #toggleui {
   background:none;

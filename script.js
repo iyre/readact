@@ -4,6 +4,8 @@ $('#weight').on('input', function() {fillOutput()})
 $('#filename').on('input', function() {openFile()})
 $('#save').on('click', function() {saveFile()})
 $('#toggleui').on('click', function() {toggleStealth()})
+// delegated event since output is dynamic
+$(document).on('click', '.redacted', function() {$(this).toggleClass('show')})
 
 loadStorage()
 openFile()
