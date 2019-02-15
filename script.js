@@ -3,6 +3,7 @@ $('#input').on('blur', function() {fillOutput()})
 $('#weight').on('input', function() {fillOutput()})
 $('#filename').on('input', function() {openFile()})
 $('#save').on('click', function() {saveFile()})
+$('#delete').on('click', function() {deleteFile()})
 $('#toggleui').on('click', function() {toggleStealth()})
 // delegated event since output is dynamic
 $(document).on('click', '.redacted', function() {$(this).toggleClass('show')})
@@ -72,6 +73,17 @@ function saveFile() {
   $('#filename').val('u_'+saveName)
   localStorage.setItem("u_" + saveName, saveContent)
   localStorage.setItem("last_file", 'u_'+saveName)
+}
+
+// remove selected file from local storage
+function deleteFile() {
+  var fileName = $('#filename').val()
+  var files = loadStorage()
+  var index = files.indexOf(fileName)
+  if (index!== -1) {files.splice(index, 1)}
+  localStorage.setItem("files", JSON.stringify(files))
+  localStorage.removeItem(fileName)
+  loadStorage()
 }
 
 // load selected file
