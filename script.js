@@ -65,7 +65,7 @@ function saveFile() {
   var saveContent = $('#input').val()
   var files = loadStorage()
   if (saveName=="" || saveName == null) {saveName=fileName.slice(2)}
-  if (files.indexOf("u_"+saveName)<1) {
+  if (files.indexOf("u_"+saveName)<0) {
     files.push("u_" + saveName)
     localStorage.setItem("files", JSON.stringify(files))
     $('#filename').append("<option value='u_" + saveName + "'>" + saveName + "</option>")
