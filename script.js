@@ -101,8 +101,6 @@ function openFile() {
 function toggleStealth() {
   $('#instructions').toggleClass('hide')
   $('#input').toggleClass('hide')
-  $('#filename').toggleClass('hide')
-  $('#newfile').toggleClass('hide')
-  $('#save').toggleClass('hide')
+  $('#fileform').toggleClass('hide')
   $('#weight').toggleClass('hide')
 }
