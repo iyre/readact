@@ -69,9 +69,7 @@ body {
   }
   #instructions {display:none;}
   #input {display:none;}
-  #filename {display:none;}
-  #newfile {display:none;}
-  #save {display:none;}
+  #fileform {display:none;}
   #weight {display:none;}
   #toggleui {display:none;}
   #output {
