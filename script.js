@@ -71,6 +71,7 @@ function saveFile() {
     $('#filename').append("<option value='u_" + saveName + "'>" + saveName + "</option>")
   }
   $('#filename').val('u_'+saveName)
+  $('#newfile').val("")
   localStorage.setItem("u_" + saveName, saveContent)
   localStorage.setItem("last_file", 'u_'+saveName)
 }
