@@ -61,6 +61,7 @@ body {
 }
 #toggleui:hover {color:black;}
 #toggleui:focus {outline:0;}
+footer a {font-family:monospace;color:#aaa;line-height:2em;}
 
 @media print {
   html,body {
@@ -72,6 +73,7 @@ body {
   #fileform {display:none;}
   #weight {display:none;}
   #toggleui {display:none;}
+  footer {display:none;}
   #output {
     font-family:arial;
     font-size:10pt;
