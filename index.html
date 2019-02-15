@@ -11,7 +11,7 @@
   <body>
     <p id="instructions">Enter lyrics in the text area. Slider controls hiding - hover/tap to reveal</p>
     <textarea id="input" rows="5" cols="80"></textarea>
-    <form id="fileform">
+    <form id="fileform" onSubmit="return false;">
       <select id="filename" name="filename"></select>
       <input id="newfile" type="text" maxlength="30">
       <button id="save">Save</button>
