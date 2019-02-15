@@ -1,4 +1,9 @@
-* {page-break-after:auto;user-select:none;-moz-user-select: none;-webkit-user-select: none;}
+* {
+  page-break-after:auto;
+  user-select:none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
 html {
   font-family:sans-serif;
   font-size:1em;
@@ -62,7 +67,11 @@ body {
 }
 #toggleui:hover {color:black;}
 #toggleui:focus {outline:0;}
-footer a {font-family:monospace;color:#aaa;line-height:2em;}
+footer a {
+  font-family:monospace;
+  color:#aaa;
+  line-height:2em;
+}
 
 @media print {
   html,body {
