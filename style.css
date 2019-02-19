@@ -36,6 +36,11 @@ body {
 #fileform {
   margin-bottom:10px;
 }
+#newfile {
+  user-select:text;
+  -moz-user-select:text;
+  -webkit-user-select:text;
+}
 #weight {
   width:25em;
   margin-bottom:10px;
