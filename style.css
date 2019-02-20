@@ -1,13 +1,10 @@
-<<<<<<< HEAD
 * {
   page-break-after:auto;
   user-select:none;
   -moz-user-select: none;
+  -ms-user-select:none;
   -webkit-user-select: none;
 }
-=======
-* {page-break-after:auto;user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;}
->>>>>>> 4825fbc594dcae8b758c02d7e4391457a8179ace
 html {
   font-family:sans-serif;
   font-size:1em;
