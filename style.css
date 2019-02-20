@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 * {
   page-break-after:auto;
   user-select:none;
   -moz-user-select: none;
   -webkit-user-select: none;
 }
+=======
+* {page-break-after:auto;user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;}
+>>>>>>> 4825fbc594dcae8b758c02d7e4391457a8179ace
 html {
   font-family:sans-serif;
   font-size:1em;
@@ -22,6 +26,7 @@ body {
   max-width:40em;
   margin-bottom:10px;
   user-select:text;
+  -ms-user-select:text;
   -moz-user-select:text;
   -webkit-user-select:text;
 }
@@ -41,6 +46,12 @@ body {
 #fileform {
   margin-bottom:10px;
 }
+#newfile {
+  user-select:text;
+  -ms-user-select:text;
+  -moz-user-select:text;
+  -webkit-user-select:text;
+}
 #weight {
   width:25em;
   margin-bottom:10px;
@@ -48,12 +59,17 @@ body {
 .redacted {
   background:black;
   cursor:pointer;
+  color:#000;
   color:rgba(255,255,255,0);
 }
 .show, .redacted:hover {
+  color:#000;
   color:rgba(255,255,255,1);
-  transition-duration: 75ms;
-  -webkit-transition-duration: 75ms;
+  transition-duration: 50ms;
+  -ms-transition-duration: 50ms;
+  -moz-transition-duration: 50ms;
+  -o-transition-duration: 50ms;
+  -webkit-transition-duration: 50ms;
 }
 .hide {display:none;}
 #toggleui {
@@ -91,6 +107,7 @@ footer a {
   #output li {line-height:15pt;}
   .redacted {
     background-color:white;
+    color:#fff;
     color:rgba(0,0,0,0);
     border-bottom:1px solid black;
   }
