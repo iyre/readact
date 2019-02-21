@@ -7,6 +7,7 @@
     <title>redactify</title>
     <link rel="stylesheet" href="style.css?v=2.2">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="manifest" href="manifest.json">
   </head>
   <body>
     <p id="instructions">Enter lyrics in the text area. Slider controls hiding - hover/tap to reveal</p>
@@ -18,10 +19,9 @@
       <button id="delete">Delete</button>
     </form>
     <input class="slider" type="range" id="weight" min="0" value="50" max="100" step="10">
-    <button id="toggleui" title="Reading mode">👁️</button>
     <ul id="output"></ul>
     <footer><a href="https://gitlab.com/iyre/redactify">source</a></footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
     <script src="script.js?v=2.2"></script>
   </body>
 </html>

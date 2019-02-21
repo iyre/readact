@@ -101,10 +101,9 @@ function openFile() {
   }
 }
 
-// toggle ui elements
-function toggleStealth() {
-  $('#instructions').toggleClass('hide');
-  $('#input').toggleClass('hide');
-  $('#fileform').toggleClass('hide');
-  $('#weight').toggleClass('hide');
+// service worker registration
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+           .register('sw.js')
+           .then(function() { console.log('Service Worker Registered'); });
 }

@@ -1,0 +1,13 @@
+{
+    "name": "redactify",
+    "short_name": "redactify",
+    "icons": [{
+      "src": "favicon.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#000",
+    "theme_color": "#eee"
+  }
