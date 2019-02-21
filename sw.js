@@ -12,11 +12,12 @@ self.addEventListener('install', function(event) {
 
             // Add Files to the Cache
             return cache.addAll([
-                '/index.html',
-                '/script.js',
-                '/style.css',
-                '/favicon.png',
-                '/jquery.min.js'
+                'index.html',
+                'script.js',
+                'style.css',
+                'favicon.png',
+                'jquery.min.js',
+                'manifest.json'
             ]);
         })
     );
@@ -26,8 +27,8 @@ self.addEventListener('fetch', function(event) {
     console.log(event.request.url);
    
     event.respondWith(
-      caches.match(event.request).then(function(response) {
-        return response || fetch(event.request);
-      })
+        caches.match(event.request).then(function(response) {
+            return response || fetch(event.request);
+        })
     );
-   });
+});
