@@ -1,4 +1,4 @@
-# redactify
+# readact
 train your memory with random redaction
 
-[demo](https://iyre.gitlab.io/redactify/)
+[demo](https://iyre.github.io/readact/)
