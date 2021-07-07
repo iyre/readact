@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="Description" content="Train memory by recalling redacted text">
-    <title>redactify</title>
+    <title>readact</title>
     <link rel="stylesheet" href="style.css?v=2.2">
     <link rel="icon" type="image/png" href="favicon.png">
   </head>
   <body>
-    <p id="instructions">Enter lyrics in the text area. Slider controls hiding - hover/tap to reveal</p>
+    <p id="instructions">Enter lyrics in the text area. Slider controls hiding. Hover/tap to reveal.</p>
     <textarea id="input" rows="5" cols="80"></textarea>
     <form id="fileform" onSubmit="return false;">
       <select id="filename" name="filename"></select>
@@ -20,7 +20,7 @@
     <input class="slider" type="range" id="weight" min="0" value="50" max="100" step="10">
     <button id="toggleui" title="Reading mode">👁️</button>
     <ul id="output"></ul>
-    <footer><a href="https://gitlab.com/iyre/redactify">source</a></footer>
+    <footer><a href="https://iyre.github.io/readact">source</a></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js?v=2.2"></script>
   </body>
